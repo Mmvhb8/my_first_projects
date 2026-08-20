@@ -8,7 +8,7 @@ party_size = 2
 
 for i in range(party_size):
     name = input("Enter hero name: ")
-    level = int(input("Eneter hero level: "))
+    level = int(input("Enter hero level: "))
     hero = Hero(name, level)
     party.append(hero)
 
