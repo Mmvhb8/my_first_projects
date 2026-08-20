@@ -1,0 +1,17 @@
+class Hero:
+    def __init__(self, name, level):
+        self.name = name
+        self.level = level
+
+party = []
+party_size = 2
+
+for i in range(party_size):
+    name = input("Enter hero name: ")
+    level = int(input("Eneter hero level: "))
+    hero = Hero(name, level)
+    party.append(hero)
+
+print("Your party:")
+for hero in party:
+    print(hero.name, hero.level)
