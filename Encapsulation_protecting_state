@@ -1,0 +1,35 @@
+class Wizard:
+    def __init__(self, mana):
+        if mana < 0 or mana > 100:
+            raise ValueError("Mana must be between 0 and 100")
+        self._mana = mana
+    
+    def set_mana(self, mana):
+        if mana < 0:
+            mana = 0
+        elif mana > 100:
+            mana = 100
+        self._mana = mana
+
+wizard = Wizard(20)
+
+wizard.set_mana(60)
+print("Wizard mana:", wizard._mana)
+wizard.set_mana(-50)
+print("Wizard mana:", wizard._mana)
+
+class Warrior:
+    def __init__(self, stamina):
+        if stamina < 0 or stamina > 150:
+            raise ValueError("Stamina must be between 0 and 150")
+        self._stamina = stamina
+
+    def set_stamina(self, stamina):
+        if stamina < 0 or stamina > 150:
+            raise ValueError("Stamina must be between 0 and 150")
+        self._stamina = stamina
+
+warrior = Warrior(25)
+
+warrior.set_stamina(50)
+warrior.set_stamina(2000)
