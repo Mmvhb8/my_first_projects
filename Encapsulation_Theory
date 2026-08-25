@@ -1,0 +1,12 @@
+class Wizard:
+    def __init__(self, name, mana):
+        self.name = name
+        self._mana = mana
+    def get_mana(self):
+        """Return the current mana of the wizard."""
+        return self._mana
+
+w1 = Wizard("Akhenar", 20)
+
+print(w1.name)
+print("Mana:", w1.get_mana())
