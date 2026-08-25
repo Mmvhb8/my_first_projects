@@ -1,0 +1,28 @@
+class Pet:
+    def __init__(self, name, level):
+        self.name = name
+        self.level = level
+    
+    def feed(self):
+        print(f"{self.name} eats and feels stronger!")
+
+    def introduce(self):
+        print(f"I am {self.name}, I am a level {self.level} pet.")
+
+class Dragon(Pet):
+    pass
+class Wolf(Pet):
+    pass
+class Bird(Pet):
+    pass
+
+dragon = Dragon("Frost", 17)
+wolf = Wolf("Longtooth", 3)
+bird = Bird("Storm Eagle", 7)
+
+dragon.feed()
+dragon.introduce()
+wolf.feed()
+wolf.introduce()
+bird.feed()
+bird.introduce()
