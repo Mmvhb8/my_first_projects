@@ -1,0 +1,13 @@
+class Rider:
+    def __init__(self, name):
+        self.name = name
+
+class Mount:
+    def __init__(self, name, rider=None):
+        self.name = name
+        self.rider = rider
+
+atreyu = Rider("Atreyu")
+artax = Mount("Artax", atreyu)
+
+print(f"{atreyu.name} is riding {artax.name}")
