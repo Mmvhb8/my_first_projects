@@ -1,0 +1,13 @@
+class Spellcaster:
+    def cast(self):
+        print("Casts magic missile")
+
+class Necromancer(Spellcaster):
+    def cast(self):
+        print("Summons undead")
+
+wizard = Spellcaster()
+necromancer = Necromancer()
+
+wizard.cast()
+necromancer.cast()
