@@ -1,0 +1,11 @@
+class Rogue:
+    def __init__(self, name, level, stealth):
+        self.name = name
+        self.level = level
+        self.stealth = stealth
+    
+    def __str__(self):
+        return f"{self.name}, Level: {self.level}, Stealth: {self.stealth}"
+
+shade = Rogue("Shade", 5, 10)
+print(shade)
