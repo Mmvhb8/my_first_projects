@@ -3,8 +3,6 @@ class Character:
         self.name = name
         self._max_stamina = max_stamina
         self.set_stamina(max_stamina)
-        if self._stamina < 0 or self._stamina > self._max_stamina:
-            raise ValueError("Invalid stamina value")
         self._stamina = self._stamina 
         # TODO:
         # - store name
