@@ -1,0 +1,107 @@
+class Character:
+    def __init__(self, name, max_stamina):
+        self.name = name
+        self._max_stamina = max_stamina
+        self.set_stamina(max_stamina)
+        if self._stamina < 0 or self._stamina > self._max_stamina:
+            raise ValueError("Invalid stamina value")
+        self._stamina = self._stamina 
+        # TODO:
+        # - store name
+        # - store max_stamina
+        # - start current stamina full (== max_stamina)
+        # - use the setter to enforce validation
+
+    def get_stamina(self):
+        return self._stamina
+
+    def get_max_stamina(self):
+        return self._max_stamina
+
+    def set_stamina(self, value):
+        if value < 0 or value > self._max_stamina:
+            raise ValueError("Invalid stamina value")
+        self._stamina = value
+        
+        # TODO:
+        # - value must be between 0 and max_stamina (inclusive)
+        # - if not, raise ValueError("Invalid stamina value")
+        # - otherwise, set self._stamina
+        #
+        # Remember to repeat the variable on both sides:
+        # value < 0 or value > self._max_stamina
+
+    def action(self):
+        # Base version: can stay simple or even empty
+        # Subclasses will override this
+        print(f"{self._name} does something...")
+
+    def __str__(self):
+        return f"{self.name} (STA: {self._stamina}/{self._max_stamina})"
+        # TODO: return EXACTLY this format:
+        # "<name> (STA: <current>/<max>)"
+        #
+        # Example: "Thorin (STA: 30/50)"
+
+
+class Warrior(Character):
+    def action(self):
+        print(f"{self.name} swings a sword!")
+        # TODO: override with something like:
+        # "<name> swings a sword!"
+        # (Use print, and use the character’s real name)
+        
+
+
+class Mage(Character):
+    def action(self):
+        print(f"{self.name} casts a fireball!")
+        # TODO: override with something like:
+        # "<name> casts a fireball!"
+
+
+class Guild:
+    def __init__(self, name):
+        self.name = name
+        # Guild SHOULD NOT inherit from Character.
+        # A Guild HAS members (composition).
+        self.members = []
+
+    def add_member(self, character):
+        # TODO:
+        # - add the character to members list
+        self.members.append(character)
+
+    def perform_actions(self):
+        for member in self.members:
+            member.action()
+        # TODO:
+        # - loop through members
+        # - call action() on each
+        # One loop, many behaviors (polymorphism)
+
+
+# ---------- Self-check code (don’t change this) ----------
+
+if __name__ == "__main__":
+    g = Guild("Dragonfang")
+
+    w = Warrior("Thorin", 50)
+    m = Mage("Elira", 40)
+
+    g.add_member(w)
+    g.add_member(m)
+
+    print(str(w))   # Expect: "Thorin (STA: 50/50)"
+    print(str(m))   # Expect: "Elira (STA: 40/40)"
+
+    print("--- Guild actions ---")
+    g.perform_actions()
+
+    # Try some stamina changes
+    w.set_stamina(30)
+    print(str(w))   # Expect: "Thorin (STA: 30/50)"
+
+    # Uncomment these lines one by one to check validation:
+    # w.set_stamina(-10)       # should raise ValueError
+    # m.set_stamina(999)       # should raise ValueError
